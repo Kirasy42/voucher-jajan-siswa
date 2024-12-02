@@ -17,3 +17,13 @@ Route::get('/siswa/{id}', [SiswaController::class, 'show']);
 Route::put('/siswa/{id}', [SiswaController::class, 'update']);
 Route::delete('/siswa/{id}', [SiswaController::class, 'destroy']);
 Route::get('/siswa/search/{name}', [SiswaController::class, 'search']);
+
+
+
+
+use App\Http\Controllers\VoucherController;
+
+Route::post('/vouchers/make/{id}', [VoucherController::class, 'make']);
+Route::get('/vouchers', [VoucherController::class, 'index']);
+Route::get('/vouchers/{id}', [VoucherController::class, 'voucherOwner']); // id dari si VOUCHER
+Route::get('/balance/{id}', [VoucherController::class, 'checkBalance']); // id dari si SISWA
