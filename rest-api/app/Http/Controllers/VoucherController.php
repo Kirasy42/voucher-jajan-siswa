@@ -129,6 +129,7 @@ class VoucherController extends Controller
         return response()->json([
             'message' => 'Saldo voucher ditemukan.',
             'nama_siswa' => $voucher->siswa->nama_siswa,
+            'id_voucher' => $voucher->id_voucher,
             'saldo' => $voucher->sisa_saldo
         ], 200); // Mengembalikan response dengan status 200 OK
     } 
