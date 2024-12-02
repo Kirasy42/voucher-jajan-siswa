@@ -9,6 +9,7 @@ Route::get('/user', function (Request $request) {
 
 
 
+
 use App\Http\Controllers\SiswaController;
 
 Route::get('/siswa', [SiswaController::class, 'index']);
@@ -27,3 +28,11 @@ Route::post('/vouchers/make/{id}', [VoucherController::class, 'make']);
 Route::get('/vouchers', [VoucherController::class, 'index']);
 Route::get('/vouchers/{id}', [VoucherController::class, 'voucherOwner']); // id dari si VOUCHER
 Route::get('/balance/{id}', [VoucherController::class, 'checkBalance']); // id dari si SISWA
+
+
+
+
+use App\Http\Controllers\TransaksiController;
+
+Route::post('/transactions', [TransaksiController::class, 'recordTransaction']);
+Route::get('/transactions/{id}', [TransaksiController::class, 'getTransactionsByVoucher']);
