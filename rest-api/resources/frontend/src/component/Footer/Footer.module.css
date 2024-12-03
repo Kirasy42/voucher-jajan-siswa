@@ -1,0 +1,22 @@
+.container{
+    color: white;
+    background-color: rgb(116, 0, 169);
+    padding: 1rem;
+    text-align: center;
+}
+
+.footer__title{
+    margin-bottom: 1rem;
+}
+
+.footer__author{
+    margin-bottom: 1rem;
+}
+
+@media(min-width:768px){
+    
+}
+
+@media(min-width:992px){
+    
+}

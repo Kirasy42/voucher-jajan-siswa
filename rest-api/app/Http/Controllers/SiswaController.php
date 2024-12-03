@@ -18,7 +18,7 @@ class SiswaController extends Controller
             $data = [
                 "message"=> "Data of Siswa is Empty"
             ];
-            $statuscode = 200;
+            $statuscode = 204;
         } else{ 
             $data = [
                 "message"=> "Get All Data of Siswa",
