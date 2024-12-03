@@ -1,10 +1,3 @@
-body{
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    /* margin: 0; */
-}
-
 .container{
     display: flex;
     margin: 2rem 0 2rem 0;
@@ -15,39 +8,40 @@ body{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     flex-wrap: wrap;
     background-color: aliceblue;
+    max-width: 100%;
 }
 
-.Statusform__image{
+.Siswaform__image{
     /* flex: 1 1 100px; */
     padding: 2rem;
 }
 
-.Statusform__image img{
+.Siswaform__image img{
     width: 100%;
     max-width: 500px;
     height: auto;
 }
 
-.Statusform__form{
+.Siswaform__form{
     text-align: center;
     padding: 2rem;
     flex: 1 1 300px;
     max-width: 300px;
 }
 
-.Statusform__form__title{
+.Siswaform__form__title{
     font-size: 1ram;
     margin-bottom: 1ram;
     color: rgb(122, 28, 172);
 }
 
-.Statusform__form__label{
+.Siswaform__form__label{
     display: block;
     margin-bottom: 1ram;
     color: rgb(122, 28, 172);
 }
 
-.Statusform__form__text{
+.Siswaform__form__text{
     width: 80%;
     padding: 0.5rem;
     margin-bottom: 1rem;
@@ -56,7 +50,7 @@ body{
     font-size: 16px;
 }
 
-.Statusform__form__submit{
+.Siswaform__form__submit{
     width: 100%;
     padding: 10px;
     background-color: rgb(235, 211, 248);

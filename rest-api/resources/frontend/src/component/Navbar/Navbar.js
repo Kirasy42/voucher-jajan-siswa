@@ -14,7 +14,7 @@ function Navbar() {
                         <Link to="/">Home</Link>
                     </li>
                     <li className={styles.navbar__item}>
-                        <Link to="/movie/create">Add Movie</Link>
+                        <Link to="/siswa/create">Add Siswa</Link>
                     </li>
                     <li className={styles.navbar__item}>
                         <Link to="/movie/popular">Popular</Link>
