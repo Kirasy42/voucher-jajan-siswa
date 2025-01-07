@@ -14,16 +14,16 @@ function Navbar() {
                         <Link to="/">Home</Link>
                     </li>
                     <li className={styles.navbar__item}>
+                        <Link to="/siswa/list">List Siswa</Link>
+                    </li>
+                    <li className={styles.navbar__item}>
                         <Link to="/siswa/create">Add Siswa</Link>
                     </li>
                     <li className={styles.navbar__item}>
-                        <Link to="/movie/popular">Popular</Link>
+                        <Link to="/transaction/create">Transaction</Link>
                     </li>
                     <li className={styles.navbar__item}>
-                        <Link to="/movie/now">Now Playing</Link>
-                    </li>
-                    <li className={styles.navbar__item}>
-                        <Link to="/movie/top">Top Rated</Link>
+                        <Link to="/transaction/list">Transaction List</Link>
                     </li>
                 </ul>
             </nav>

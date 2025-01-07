@@ -113,7 +113,10 @@ class VoucherController extends Controller
         $siswa = \App\Models\Siswa::find($id);
         
         if (!$siswa) {
-            return response()->json(['message' => 'Siswa tidak ditemukan.'], 404);
+            return response()->json([
+                'message' => 'Siswa tidak ditemukan.',
+                'nama_siswa' => ''
+            ], 404);
         }
 
         // Cek voucher yang ada untuk siswa pada hari ini
@@ -122,7 +125,10 @@ class VoucherController extends Controller
             ->first();
 
         if (!$voucher) {
-            return response()->json(['message' => 'Voucher tidak ditemukan untuk siswa pada hari ini.'], 404);
+            return response()->json([
+                'message' => "Siswa haven't a Voucher!",
+                'nama_siswa' => $siswa->nama_siswa
+            ], 404);
         }
 
         // Mengembalikan saldo voucher

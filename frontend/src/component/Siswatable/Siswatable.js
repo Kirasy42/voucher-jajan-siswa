@@ -51,6 +51,21 @@ function Siswatable() {
         navigate('/siswa/create', { state: { user: item } });
     };
 
+    const handleCreateVoucher = async (item) => {
+        try {
+            const response = await axios.post(`http://127.0.0.1:8000/api/vouchers/make/${item.id_siswa}`);
+            alert(response.data.message);
+            window.location.reload();
+        } catch (error) {
+            console.error("Error creating Voucher: ", error);
+            if (error.response) {
+                alert(error.response.data.message || "An error occured while creating the Voucher!")
+            } else {
+                alert("No response from server! Please wait a while time.")
+            }
+        }
+    };
+
     if (error) return (
         <div className={styles.container}>
             <h1 className={styles.Siswatable__title}>Siswa Data Table</h1>
@@ -94,6 +109,7 @@ function Siswatable() {
                             <td>
                                 <button onClick={() => handleEdit(item)}>Edit</button>
                                 <button onClick={() => handleDelete(item)}>Delete</button>
+                                <button onClick={() => handleCreateVoucher(item)}>Create Voucher</button>
                             </td>
                         </tr>
                     ))}

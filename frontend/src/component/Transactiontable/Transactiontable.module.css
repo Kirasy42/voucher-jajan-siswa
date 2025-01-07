@@ -1,0 +1,57 @@
+.container{
+    padding: 1rem;
+    margin: 2rem 0 2rem 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+}
+
+.Transactiontable__title{
+    color: rgb(122, 28, 172);
+    font-size: 2.44rem;
+    margin-bottom: 10px;
+}
+
+.Transactiontable__desc{
+    color: rgb(122, 28, 172);
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.Transactiontable__table{
+    width: 60%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+th, td{
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+th{
+    background-color: rgb(235, 211, 248);
+    color: #2E073F;
+}
+
+.button {
+    background-color: rgb(122, 28, 172);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 5px; /* Add some space between buttons */
+}
+
+.button:hover {
+    background-color: rgb(100, 20, 140); /* Darker shade on hover */
+}
+
+.button:focus {
+    outline: none; /* Remove default focus outline */
+}

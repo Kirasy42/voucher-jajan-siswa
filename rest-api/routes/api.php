@@ -36,3 +36,4 @@ use App\Http\Controllers\TransaksiController;
 
 Route::post('/transactions', [TransaksiController::class, 'recordTransaction']);
 Route::get('/transactions/{id}', [TransaksiController::class, 'getTransactionsByVoucher']);
+Route::get('/transactions', [TransaksiController::class, 'getTransactions']);

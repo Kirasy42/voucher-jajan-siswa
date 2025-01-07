@@ -52,6 +52,24 @@ class TransaksiController extends Controller
         ], 201);
     }
 
+    public function getTransactions(){
+        $transaksi = Transaksi::with('voucher.siswa')->get();
+
+        return response()->json(
+            [
+                'message' => 'Transaksi Ditemukan!',
+                'data' => $transaksi->map(function ($trans) {
+                    return [
+                        'id_transaksi' => $trans->id_transaksi,
+                        'id_voucher' => $trans->id_voucher,
+                        'jumlah_pengurangan' => $trans->jumlah_pengurangan,
+                        'tanggal' => $trans->tanggal,
+                        'nama_siswa' => $trans->voucher->siswa->nama_siswa ?? 'N/A',
+                    ];
+                })
+            ], 200);
+    }
+
     public function getTransactionsByVoucher($id){
         $transaksi = Transaksi::where('id_voucher', $id)->get();
 
