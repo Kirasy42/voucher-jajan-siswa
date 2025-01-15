@@ -51,10 +51,10 @@ function Siswaform({users, setUsers}){
             let response;
 
             if (isEditing) {
-                response = await axios.put(`http://127.0.0.1:8000/api/siswa/${user.id_siswa}/`, userData);
+                response = await axios.put(`https://smiling-robin-smashing.ngrok-free.app/api/siswa/${user.id_siswa}/`, userData);
             } else {
                 // If adding a new user, send a POST request
-                response = await axios.post('http://127.0.0.1:8000/api/siswa/', userData);
+                response = await axios.post('https://smiling-robin-smashing.ngrok-free.app/api/siswa/', userData);
             }
 
             if (window.confirm(response.data.message + '\n\nWanna go to Home page?')){

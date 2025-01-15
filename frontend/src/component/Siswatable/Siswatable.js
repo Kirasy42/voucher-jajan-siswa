@@ -11,7 +11,9 @@ function Siswatable() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/api/siswa/');
+                const response = await axios.get(`https://smiling-robin-smashing.ngrok-free.app/api/siswa/`, {
+                    headers: {'ngrok-skip-browser-warning': 'true'}
+                });
                 const siswaData = response.data.data;
 
                 if (Array.isArray(siswaData) && siswaData.length > 0) {
@@ -31,8 +33,7 @@ function Siswatable() {
     const handleDelete = async (item) => {
         try {
             if (window.confirm('Are you sure to Delete This data?\n\nID : ' + item.id_siswa + '\nNama Siswa : ' + item.nama_siswa + "\nKelas : " + item.kelas)){
-                const response = await axios.delete(`http://127.0.0.1:8000/api/siswa/${item.id_siswa}/`);
-                // Remove the deleted item from the state
+                const response = await axios.delete(`https://smiling-robin-smashing.ngrok-free.app/api/siswa/${item.id_siswa}/`);
                 setData(data.filter(item => item.id_siswa !== item));
                 alert(response.data.message);
                 window.location.reload();
@@ -53,7 +54,7 @@ function Siswatable() {
 
     const handleCreateVoucher = async (item) => {
         try {
-            const response = await axios.post(`http://127.0.0.1:8000/api/vouchers/make/${item.id_siswa}`);
+            const response = await axios.post(`https://smiling-robin-smashing.ngrok-free.app/api/vouchers/make/${item.id_siswa}`);
             alert(response.data.message);
             window.location.reload();
         } catch (error) {
@@ -77,7 +78,7 @@ function Siswatable() {
     <div className={styles.container}>
             <h1 className={styles.Siswatable__title}>Siswa Data Table</h1>
             <h2 className={styles.Siswatable__desc}>Here you can get Table of Data Siswa</h2>
-            <div>No data available</div>
+            <div>LOADING...</div>
         </div>
     );
 

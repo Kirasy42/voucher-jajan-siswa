@@ -24,19 +24,22 @@ function Transactionform({users, setUsers}){
 
     const fetchBalance = async (id) => {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/balance/${id}`);
+            const response = await axios.get(`https://smiling-robin-smashing.ngrok-free.app/api/balance/${id}`, {
+                headers: {'ngrok-skip-browser-warning': 'true'}
+            });
             setNamaSiswa(response.data.nama_siswa);
             setSisaSaldo(response.data.saldo);
             setIdVoucher(response.data.id_voucher);
             setError("");
         } catch (err) {
             setNamaSiswa(err.response?.data.nama_siswa);
-            setSisaSaldo("");
+            setSisaSaldo("-");
             setError(err.response?.data.message);
         }
     };
 
     const handleIdSiswaChange = async (e) => {
+        setError("LOADING...");
         const id = e.target.value;
         setIdSiswa(id);
 
@@ -63,14 +66,14 @@ function Transactionform({users, setUsers}){
         };
 
         try {
-            const response = await axios.post(`http://127.0.0.1:8000/api/transactions`, transactionData);
+            const response = await axios.post(`https://smiling-robin-smashing.ngrok-free.app/api/transactions`, transactionData);
 
 
             if (window.confirm(response.data.message + '\n\nWanna go to Home page?')){
                 window.location.href = '/';
             } else {
                 window.location.reload();
-                setUsers([...users, response.data.data]); // Add new transaction to users
+                setUsers([...users, response.data.data]);
                 setIdSiswa("");
                 setNamaSiswa("");
                 setTotalBiaya("");
@@ -78,7 +81,7 @@ function Transactionform({users, setUsers}){
             }
         } catch (err) {
             if (err.response) {
-                setError(err.response.data.message || "An error occurred"); // Use the message from the server if available
+                setError(err.response.data.message || "An error occurred");
             } else if (err.request) {
                 setError("No response from server. Please try again later.");
             }
@@ -98,19 +101,20 @@ function Transactionform({users, setUsers}){
                 <form onSubmit={handleSubmit}>
                 <label className={styles.Transactionform__form__label}>ID Siswa:</label>
                     <input 
-                        type="text" // or "number" if IDs are strictly numeric
+                        placeholder="Isi ID siswa"
+                        type="text"
                         value={idSiswa} 
-                        onBlur={handleIdSiswaChange} // Use onBlur instead of onFocusOut
-                        onChange={(e) => setIdSiswa(e.target.value)} // Keep onChange to allow typing
+                        onBlur={handleIdSiswaChange}
+                        onChange={(e) => setIdSiswa(e.target.value)}
                         className={styles.Transactionform__form__input}
                         required
                     />
 
                     <label className={styles.Transactionform__form__label} >Nama Siswa</label> {/* Setelah ID siswa di isi, Nama siswa akan muncul sesuai dengan IDnya */}
-                    <input type="text" value={namaSiswa} readOnly className={styles.Transactionform__form__input} />
+                    <input placeholder="Auto Show mengikuti IDnya" type="text" value={namaSiswa} readOnly className={styles.Transactionform__form__input} />
 
                     <label className={styles.Transactionform__form__label} >Sisa Saldo</label> {/* Setelah ID siswa di isi, Sisa Saldo dari Voucher hari tersebut juga akan muncul sesuai dengan IDnya. Jika Siswa tersebut belum punya Voucher untuk hari tersebut, beri tahu */}
-                    <input type="text" value={sisaSaldo} readOnly className={styles.Transactionform__form__input} />
+                    <input placeholder="Auto Show mengikuti IDnya" type="text" value={sisaSaldo} readOnly className={styles.Transactionform__form__input} />
 
                     <label className={styles.Transactionform__form__label} >Total Biaya Transaksi</label>
                     <input type="number" value={totalBiaya} onChange={(e) => setTotalBiaya(e.target.value)} className={styles.Transactionform__form__input} required />
