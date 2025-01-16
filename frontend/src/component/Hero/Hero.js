@@ -5,8 +5,8 @@ function Hero() {
         <div className={styles.container}>
             <section className={styles.hero}>
                 <div className={styles.hero__left}>
-                    <h2 className={styles.hero__title}>Spiderman</h2>
-                    <h5 className={styles.hero__genre}>Genre: Action, Sci-Fi</h5>
+                    <h2 className={styles.hero__title}>Jajan Siswa System Administration</h2>
+                    <h5 className={styles.hero__genre}>Kantin Nurul Fikri Amanah</h5>
 
                     <p className={styles.hero__description}>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec pharetra tellus. 
@@ -16,8 +16,6 @@ function Hero() {
                         Nunc semper nibh est, id tempus nulla ullamcorper sed. 
                         Cras pretium cursus odio, in ultricies nulla efficitur sit amet. Fusce tristique tempor tortor vel dignissim.
                     </p>
-
-                    <button className={styles.hero__button}> Watch </button>
                 </div>
 
                 <div  className={styles.hero__right}>
